@@ -5,10 +5,11 @@ import {
   Heading,
   Link,
   Stack,
-  IconButton,
-} from "@chakra-ui/react";
+  HStack,
 
-import { FaInstagram, FaTiktok, FaLinkedin } from "react-icons/fa";
+} from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
+import { FaInstagram, FaFacebookF, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -17,40 +18,32 @@ const Footer = () => {
         direction={{ base: "column", md: "row" }}
         justify="space-between"
         wrap="wrap"
-        gap={10}
+        gap={8}
       >
-        <Box flex="1" minW="250px" textAlign={{ base: "center", md: "left" }}>
+        <Box flex="1" w="100%" textAlign={{ base: "center", md: "left" }}>
           <Heading size="md" mb={4} textAlign={{ base: "center", md: "left" }}>
             Dyphnah Nyamongo
           </Heading>
-          <Text mb={4}>
-            Your tech-savvy virtual assistant. I bring clarity, efficiency, and creativity to every project. My mission is to lighten your load so you can focus on strategy, decisions, and impact.
+          <Text mb={4} textStyle="body">
+            Your tech-savvy virtual assistant. I bring clarity, efficiency, and
+            creativity to every project. My mission is to lighten your load so
+            you can focus on strategy, decisions, and impact.
           </Text>
-          <Flex gap={4} justify={{ base: "center", md: "flex-start" }}>
-            <IconButton
-              as="a"
-              href="#"
-              icon={<FaInstagram />}
-              aria-label="Instagram"
-              variant="outline"
-              colorScheme="brand.400"
-            />
-            <IconButton
-              as="a"
-              href="#"
-              icon={<FaTiktok />}
-              aria-label="TikTok"
-              variant="outline"
-              colorScheme="blackAlpha"
-            />
-            <IconButton
-              as="a"
-              href="#"
-              icon={<FaLinkedin />}
-              aria-label="LinkedIn"
-              variant="outline"
-              colorScheme="blue"
-            />
+
+          <Flex justify={{ base: "center", md: "flex-start" }} mt={4}>
+            <HStack spacing={6} textStyle="body">
+              <Link href="https://web.facebook.com/Dyphnah/" target="_blank">
+                <FaFacebookF size={22} color="#1877F2" />
+              </Link>
+
+              <Link href="https://instagram.com" target="_blank">
+                <FaInstagram size={22} color="#E1306C" />
+              </Link>
+
+              <Link href="https://www.linkedin.com/in/dyphnah/" target="_blank">
+                <FaLinkedin size={22} color="#0A66C2" />
+              </Link>
+            </HStack>
           </Flex>
         </Box>
 
@@ -58,10 +51,14 @@ const Footer = () => {
           <Heading size="sm" mb={4} textAlign={{ base: "center", md: "left" }}>
             Quick Links
           </Heading>
-          <Stack spacing={2} align={{ base: "center", md: "flex-start" }}>
-            <Link href="#">Home</Link>
-            <Link href="#">Services</Link>
-            <Link href="#">Portfolio</Link>
+          <Stack
+            spacing={2}
+            align={{ base: "center", md: "flex-start" }}
+            textStyle="body"
+          >
+            <Link href="/">Home</Link>
+            <Link href="/blog">Blog</Link>
+            <Link href="/portfolio">Portfolio</Link>
           </Stack>
         </Box>
 
@@ -69,10 +66,35 @@ const Footer = () => {
           <Heading size="sm" mb={4} textAlign={{ base: "center", md: "left" }}>
             Solutions
           </Heading>
-          <Stack spacing={2} align={{ base: "center", md: "flex-start" }}>
-            <Link href="#">Admin Support</Link>
-            <Link href="#">Social Media Support</Link>
-            <Link href="#">Web Development</Link>
+          <Stack
+            spacing={2}
+            align={{ base: "center", md: "flex-start" }}
+            textStyle="body"
+          >
+            <Link
+              as={RouterLink}
+              to="/"
+              color="brand.300"
+              _hover={{ textDecoration: "underline" }}
+            >
+              Admin Support
+            </Link>
+            <Link
+              as={RouterLink}
+              to="/"
+              color="brand.300"
+              _hover={{ textDecoration: "underline" }}
+            >
+              Social Media Support
+            </Link>
+            <Link
+              as={RouterLink}
+              to="/"
+              color="brand.300"
+              _hover={{ textDecoration: "underline" }}
+            >
+              Web Development
+            </Link>
           </Stack>
         </Box>
 
@@ -80,10 +102,14 @@ const Footer = () => {
           <Heading size="sm" mb={4} textAlign={{ base: "center", md: "left" }}>
             Contact Info
           </Heading>
-          <Stack spacing={2} align={{ base: "center", md: "flex-start" }}>
-            <Text>Email: nyandukodyphnah4@gmail.com</Text>
-            <Text>Whatsapp: +254 707 819 444</Text>
-            <Text>Location: Westlands, Nairobi, Kenya</Text>
+          <Stack
+            spacing={2}
+            align={{ base: "center", md: "flex-start" }}
+            textStyle="body"
+          >
+            <Text>Email: </Text>
+            <Text>Whatsapp: </Text>
+            <Text>Location: Nairobi, Kenya</Text>
           </Stack>
         </Box>
       </Flex>
@@ -98,8 +124,9 @@ const Footer = () => {
         gap={4}
         textAlign={{ base: "center", md: "left" }}
       >
-        <Text color="brand.300">
-          © 2025. Website designed and developed by Dyphnah Nyamongo. All rights reserved.
+        <Text color="brand.200" textStyle="body">
+          © 2025. Website designed and developed by Dyphnah Nyamongo. All
+          rights reserved.
         </Text>
         <Stack
           direction={{ base: "column", md: "row" }}
@@ -107,9 +134,9 @@ const Footer = () => {
           align="center"
           color="brand.300"
         >
-          <Link href="#"
-          color='brand.300'>Media & Privacy Policy</Link>
-
+          <Link href="#" color="brand.200" textStyle="body">
+            Media & Privacy Policy
+          </Link>
         </Stack>
       </Flex>
     </Box>
